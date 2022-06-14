@@ -1,0 +1,728 @@
+{"Config": {
+    "Options":{
+        "Show Notifications": true,
+        "Show GUI": true,
+        "Show Console Messages": true,
+        "Input Devices": [
+            {
+                "Input Device": "Launch Control XL.*",
+                "Output Device": "Launch Control XL.*", # For setting LEDs. Not the device you want to control otherwise.
+                "LED Change": {
+                    "Output Type": "Sysex",
+                    "Sysex String": "F0 00 20 29 02 11 78 tt ii vv F7" # tt = Template, ii = Index, vv = Value
+                    "Colors": {
+						"Off": ["0C"],
+                		"Red": ["0D", "0F", "0B"], # Dark, Bright, Flashing
+						"Amber": ["1D", "3F", "3B"],
+						"Yellow": ["3E", null, "3A"],
+						"Green": ["1C", "3C", "38"]
+                    }
+                }
+                "Factory Templates": [
+                    {
+                        "Knobs": [
+                            {"Input Type": "CC" , "CC Number": 13, "LED ID": 0}, # 0: First row of knobs
+                            {"Input Type": "CC" , "CC Number": 14, "LED ID": 1}, # 1
+                            {"Input Type": "CC" , "CC Number": 15, "LED ID": 2}, # 2
+                            {"Input Type": "CC" , "CC Number": 16, "LED ID": 3}, # 3
+                            {"Input Type": "CC" , "CC Number": 17, "LED ID": 4}, # 4
+                            {"Input Type": "CC" , "CC Number": 18, "LED ID": 5}, # 5
+                            {"Input Type": "CC" , "CC Number": 19, "LED ID": 6}, # 6
+                            {"Input Type": "CC" , "CC Number": 20, "LED ID": 7}, # 7
+
+                            {"Input Type": "CC" , "CC Number": 29, "LED ID": 8}, # 8: Second row of knobs
+                            {"Input Type": "CC" , "CC Number": 30, "LED ID": 9},
+                            {"Input Type": "CC" , "CC Number": 31, "LED ID": 10},
+                            {"Input Type": "CC" , "CC Number": 32, "LED ID": 11},
+                            {"Input Type": "CC" , "CC Number": 33, "LED ID": 12},
+                            {"Input Type": "CC" , "CC Number": 34, "LED ID": 13},
+                            {"Input Type": "CC" , "CC Number": 35, "LED ID": 14},
+                            {"Input Type": "CC" , "CC Number": 36, "LED ID": 15}, # 15
+
+                            {"Input Type": "CC" , "CC Number": 49, "LED ID": 16}, # 16: Third row of knobs
+                            {"Input Type": "CC" , "CC Number": 50, "LED ID": 17},
+                            {"Input Type": "CC" , "CC Number": 51, "LED ID": 18},
+                            {"Input Type": "CC" , "CC Number": 52, "LED ID": 19},
+                            {"Input Type": "CC" , "CC Number": 53, "LED ID": 20},
+                            {"Input Type": "CC" , "CC Number": 54, "LED ID": 21},
+                            {"Input Type": "CC" , "CC Number": 55, "LED ID": 22},
+                            {"Input Type": "CC" , "CC Number": 56, "LED ID": 23}, # 23
+
+                            {"Input Type": "CC" , "CC Number": 77}, # 24: Row of sliders
+                            {"Input Type": "CC" , "CC Number": 78},
+                            {"Input Type": "CC" , "CC Number": 79},
+                            {"Input Type": "CC" , "CC Number": 80},
+                            {"Input Type": "CC" , "CC Number": 81},
+                            {"Input Type": "CC" , "CC Number": 82},
+                            {"Input Type": "CC" , "CC Number": 83},
+                            {"Input Type": "CC" , "CC Number": 84}, # 31
+
+                            {"Input Type": "CC" , "CC Number": 104, "LED ID": 44}, # 32: "Up" and "Down" side buttons
+                            {"Input Type": "CC" , "CC Number": 105, "LED ID": 45}, # 33
+
+                            {"Input Type": "CC" , "CC Number": 106, "LED ID": 46}, # 34: "Left" and "Right" side buttons
+                            {"Input Type": "CC" , "CC Number": 107, "LED ID": 47}  # 35
+
+                        ],
+                        "Buttons": [
+                            {"Input Type": "Note" , "Note Number": 41, "LED ID": 24}, # First row of buttons
+                            {"Input Type": "Note" , "Note Number": 42, "LED ID": 25},
+                            {"Input Type": "Note" , "Note Number": 43, "LED ID": 26},
+                            {"Input Type": "Note" , "Note Number": 44, "LED ID": 27},
+                            {"Input Type": "Note" , "Note Number": 57, "LED ID": 28},
+                            {"Input Type": "Note" , "Note Number": 58, "LED ID": 29},
+                            {"Input Type": "Note" , "Note Number": 59, "LED ID": 30},
+                            {"Input Type": "Note" , "Note Number": 60, "LED ID": 31},
+
+                            {"Input Type": "Note" , "Note Number": 73, "LED ID": 32}, # Second row of buttons
+                            {"Input Type": "Note" , "Note Number": 74, "LED ID": 33},
+                            {"Input Type": "Note" , "Note Number": 75, "LED ID": 34},
+                            {"Input Type": "Note" , "Note Number": 76, "LED ID": 35},
+                            {"Input Type": "Note" , "Note Number": 89, "LED ID": 36},
+                            {"Input Type": "Note" , "Note Number": 90, "LED ID": 37},
+                            {"Input Type": "Note" , "Note Number": 91, "LED ID": 38},
+                            {"Input Type": "Note" , "Note Number": 92, "LED ID": 39},
+
+                            {"Input Type": "Note" , "Note Number": 105, "LED ID": 40}, # Column of side buttons
+                            {"Input Type": "Note" , "Note Number": 106, "LED ID": 41},
+                            {"Input Type": "Note" , "Note Number": 107, "LED ID": 42},
+                            {"Input Type": "Note" , "Note Number": 108, "LED ID": 43}
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "Templates": {
+        "User": [
+            {
+                "Template Name": "MU100 (1-8)",
+                "Output Device": "Midi Through.*"               
+            },
+            {
+                "Template Name": "MU100 (9-16)",
+                "Output Device": "Midi Through.*"
+            },
+            {
+                "Template Name": "MBase 11",
+                "Output Device": "Midi Through.*",
+                "Output Channel": 1
+            }
+        ],
+        "Factory": [
+            { 
+                "Template Name": "PLG150-AN",
+                "Output Device": "Launchpad Pro.*",
+                "Output Channel": 13,
+                "Device Number": 0,
+                "Send Init": [
+                    /* "F0 43 10 5C 10 00 10 00 27 F7" # Common Tempo: MIDI */
+                ],
+                "Knobs": [ # F0 43 10 5C hh mm ll vv F7
+                    { # 0: First row of knobs
+                        "Control Name": "MIX VCO1",
+                        "LED Color": "Yellow",
+                        "Output Min Value": 0,
+                        "Output Max Value": 127,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 29 vv F7"
+                    },
+                    { # 1
+                        "Control Name": "VCO1 Pitch",
+                        "LED Color": "Red",
+                        "Output Min Value": 0,
+                        "Output Max Value": 127,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 18 vv F7"
+                    },
+                    { # 2
+                        "Control Name": "VCO1 PWM Depth",
+                        "LED Color": "Red",
+                        "Output Min Value": 0,
+                        "Output Max Value": 127,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 1C vv F7"
+                    },
+                    { # 3
+                        "Control Name": "VCO1 PWM PW",
+                        "LED Color": "Red",
+                        "Output Min Value": 0,
+                        "Output Max Value": 127,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 1B vv F7"
+                    },
+                    { # 4
+                        "Control Name": "LFO1 VCO1 Pitch",
+                        "LED Color": "Green",
+                        "Output Min Value": 1,
+                        "Output Max Value": 255,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 1E vv F7"
+                    },
+                    { # 5
+                        "Control Name": "LFO1 VCA",
+                        "LED Color": "Green",
+                        "Output Min Value": 0,
+                        "Output Max Value": 127,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 41 vv F7"
+                    },
+                    { # 6
+                        "Control Name": "LFO1 VCF",
+                        "LED Color": "Green",
+                        "Output Min Value": 0,
+                        "Output Max Value": 127,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 39 vv F7"
+                    },
+                    { # 7
+                        "Control Name": "VCF Cutoff",
+                        "LED Color": "Red",
+                        "Output Min Value": 0,
+                        "Output Max Value": 127,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 33 vv F7"
+                    },
+
+                   { # 8: Second row of knobs
+                        "Control Name": "MIX VCO2",
+                        "LED Color": "Yellow",
+                        "Output Min Value": 0,
+                        "Output Max Value": 127,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 2a vv F7"
+                    },
+                    {
+                        "Control Name": "VCO2 Pitch",
+                        "LED Color": "Red",
+                        "Output Min Value": 0,
+                        "Output Max Value": 127,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 21 vv F7"
+                    },
+                    {
+                        "Control Name": "VCO2 PWM Depth",
+                        "LED Color": "Red",
+                        "Output Min Value": 0,
+                        "Output Max Value": 127,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 25 vv F7"
+                    },
+                    {
+                        "Control Name": "VCO2 PWM PW",
+                        "LED Color": "Red",
+                        "Output Min Value": 0,
+                        "Output Max Value": 127,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 24 vv F7"
+                    },
+                    {
+                        "Control Name": "LFO1 VCO2 Pitch",
+                        "LED Color": "Green",
+                        "Output Min Value": 1,
+                        "Output Max Value": 255,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 27 vv F7"
+                    },
+                    {
+                        "Control Name": "Dist Drive",
+                        "LED Color": "Green",
+                        "Output Min Value": 0,
+                        "Output Max Value": 100,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 00 1C 00 vv F7"
+                    },
+                    {
+                        "Control Name": "Dist Dry/Wet",
+                        "LED Color": "Green",
+                        "Output Min Value": 1,
+                        "Output Max Value": 127,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 42 vv F7"
+                    },
+                    {
+                        "Control Name": "VCF Resonance",
+                        "LED Color": "Red",
+                        "Output Min Value": 13,
+                        "Output Max Value": 127,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 34 vv F7"
+                    },
+
+                   { # 16: Third row of knobs
+                        "Control Name": "MIX Noise",
+                        "LED Color": "Yellow",
+                        "Output Min Value": 0,
+                        "Output Max Value": 127,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 2C vv F7"
+                    },
+                    {
+                        "Control Name": "MIX Ringmod",
+                        "LED Color": "Yellow",
+                        "Output Min Value": 0,
+                        "Output Max Value": 127,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 2B vv F7"
+                    },
+                    {
+                        "Control Name": "VCA Feedback",
+                        "LED Color": "Yellow",
+                        "Output Min Value": 0,
+                        "Output Max Value": 127,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 3E vv F7"
+                    },
+                    {
+                        "Control Name": "FM Depth",
+                        "LED Color": "Amber",
+                        "Output Min Value": 0,
+                        "Output Max Value": 127,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 14 vv F7"
+                    },
+                    {
+                        "Control Name": "LFO1 Speed",
+                        "LED Color": "Green",
+                        "Output Min Value": 0,
+                        "Output Max Value": 255,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 0A vv F7"
+                    },
+                    {
+                        "Control Name": "LFO2 Speed",
+                        "LED Color": "Green",
+                        "Output Min Value": 0,
+                        "Output Max Value": 255,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 00 0D vv F7"
+                    },
+                    {
+                        "Control Name": "Portamento Time",
+                        "LED Color": "Green",
+                        "Output Min Value": 1,
+                        "Output Max Value": 127,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 07 vv F7"
+                    },
+                    {
+                        "Control Name": "VCF EG Depth",
+                        "LED Color": "Red",
+                        "Output Min Value": 0,
+                        "Output Max Value": 255,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 35 vv F7"
+                    },
+                          
+                    { # 24: Row of sliders
+                        "Control Name": "VCA ENV (AEG) Attack",
+                        "LED Color": "Green",
+                        "Output Min Value": 0,
+                        "Output Max Value": 127,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 3A vv F7"
+                    },
+                    {
+                        "Control Name": "VCA ENV (AEG) Decay",
+                        "LED Color": "Green",
+                        "Output Min Value": 0,
+                        "Output Max Value": 127,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 3B vv F7"
+                    },
+                    {
+                        "Control Name": "VCA ENV (AEG) Sustain",
+                        "LED Color": "Green",
+                        "Output Min Value": 0,
+                        "Output Max Value": 127,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 3C vv F7"
+                    },
+                    {
+                        "Control Name": "VCA ENV (AEG) Release",
+                        "LED Color": "Green",
+                        "Output Min Value": 0,
+                        "Output Max Value": 127,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 3D vv F7"
+                    },
+                    {
+                        "Control Name": "VCF ENV (FEG) Attack",
+                        "LED Color": "Green",
+                        "Output Min Value": 0,
+                        "Output Max Value": 127,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 2D vv F7"
+                    },
+                    {
+                        "Control Name": "VCF ENV (FEG) Decay",
+                        "LED Color": "Green",
+                        "Output Min Value": 0,
+                        "Output Max Value": 127,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 2E vv F7"
+                    },
+                    {
+                        "Control Name": "VCF ENV (FEG) Sustain",
+                        "LED Color": "Green",
+                        "Output Min Value": 0,
+                        "Output Max Value": 127,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 2F vv F7"
+                    },
+                    {
+                        "Control Name": "VCF ENV (FEG) Release",
+                        "LED Color": "Green",
+                        "Output Min Value": 0,
+                        "Output Max Value": 127,
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 30 vv F7"
+                    },
+                          
+                    { # 32: "Up" and "Down" side buttons
+                        "Control Name": "+",
+                        "LED Color": "Red",
+                        "Output Type": "Increment",
+                    },
+                    { # 33
+                        "Control Name": "-",
+                        "LED Color": "Red",
+                        "Output Type": "Decrement",
+                    },
+
+                    { # 34: "Left" and "Right" side buttons
+                        "Control Name": "Octave -",
+                        "LED Color": "Red",
+                        "Output Min Value": 62,
+                        "Output Max Value": 66,
+                        "Output Values": ["-2", "-1", "0", "+1", "+2"],
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 75 vv F7"
+                    },
+                    { # 35
+                        "Control Name": "Octave +",
+                        "LED Color": "Red",
+                        "Output Min Value": 62,
+                        "Output Max Value": 66,
+                        "Output Values": ["-2", "-1", "0", "+1", "+2"],
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 75 vv F7"
+                    }
+                ],
+                "Buttons": [
+                    { # 0: First row of buttons
+                        "Control Name": "Sync Source",
+                        "LED Color": "Amber",
+                        "Output Min Value": 0,
+                        "Output Max Value": 4,
+                        "Output Values": ["fixed", "PEG", "FEG", "LFO1", "LFO2"],
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 12 vv F7"                     
+                    },
+                    {
+                        "Control Name": "VCO1 Wave",
+                        "LED Color": "Red",
+                        "Output Min Value": 0,
+                        "Output Max Value": 6,
+                        "Output Values": ["Saw", "Pulse", "Saw2/Inner1", "Mix/Inner2", "Multi-saw/Inner3", "Square", "Noise"],
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 17 vv F7"
+                    },
+                    {
+                        "Control Name": "VCO1 PWM Source",
+                        "LED Color": "Red",
+                        "Output Min Value": 0,
+                        "Output Max Value": 6,
+                        "Output Values": ["fixed", "PEG", "FEG", "LFO1", "LFO2", "LFO2-phase", "LFO2-fast", "VCO2"],
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 1D vv F7"
+                    },
+                    {
+                        "Control Name": "FM Source 1 (Depth)",
+                        "LED Color": "Amber",
+                        "Output Min Value": 0,
+                        "Output Max Value": 4,
+                        "Output Values": ["fixed", "PEG", "FEG", "LFO1", "LFO2"],
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 15 vv F7"
+                    },
+                    {
+                        "Control Name": "FM Algorithm",
+                        "LED Color": "Amber",
+                        "Output Min Value": 1,
+                        "Output Max Value": 3,
+                        "Output Values": ["Both", "Master", "Slave"],
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 79 vv F7"
+                    },
+                    {
+                        "Control Name": "Dist Type",
+                        "LED Color": "Green",
+                        "Output Min Value": 0,
+                        "Output Max Value": 3,
+                        "Output Values": ["off", "Stack", "Combo", "Tube"],
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 00 1E 00 vv F7"
+                    },
+                    {
+                        "Control Name": "Portamento",
+                        "LED Color": "Green",
+                        "Output Min Value": 0,
+                        "Output Max Value": 1,
+                        "Output Values": ["Off", "on"],
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 00 13 vv F7"
+                    },
+                    {
+                        "Control Name": "VCF Filter Type",
+                        "LED Color": "Red",
+                        "Output Min Value": 0,
+                        "Output Max Value": 5,
+                        "Output Values": ["LPF-24dB", "LPF-18dB", "LPF-12dB", "BPF", "HPF-12dB", "BEF"],
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 32 vv F7"
+                    },
+            
+                    { # 8: Second row of buttons
+                        "Control Name": "Sync Mode",
+                        "LED Color": "Amber",
+                        "Output Min Value": 0,
+                        "Output Max Value": 2,
+                        "Output Values": ["Off", "VCO1 Master to Slave", "VCO2 to VCO1"],
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 20 vv F7"
+                   },
+                    {
+                        "Control Name": "VCO2 Wave",
+                        "LED Color": "Red",
+                        "Output Min Value": 0,
+                        "Output Max Value": 5,
+                        "Output Values": ["Saw", "Pulse", "Saw2/Inner1", "Mix/Inner2", "Multi-saw/Inner3", "Square", "Noise"],
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 20 vv F7"
+                    },
+                    {
+                        "Control Name": "VCO2 PWM Source",
+                        "LED Color": "Red",
+                        "Output Min Value": 0,
+                        "Output Max Value": 7,
+                        "Output Values": ["fixed", "PEG", "FEG", "LFO1", "LFO2", "LFO2-phase", "LFO2-fast", "VCO2"],
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 26 vv F7"
+                    },
+                    {
+                        "Control Name": "FM Source 2 (Modulator)",
+                        "LED Color": "Amber",
+                        "Output Min Value": 0,
+                        "Output Max Value": 7,
+                        "Output Values": ["VCO2 Freq", "VCO1", "VCO1-sub", "PEG", "FEG", "LFO1", "LFO2", "VCO2 Output"],
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 16 vv F7"
+                    },
+                    {
+                        "Control Name": "LFO1 Wave",
+                        "LED Color": "Green",
+                        "Output Min Value": 0,
+                        "Output Max Value": 21,
+                        "Output Values": ["Sine", "Sine Ofst1", "Sine Ofst2", "Sin180 Ofst1", "Sin180 Ofst2", "Tri", "Tri Ofst1", "Tri Ofst2", "Tri180 Ofst1", "Tri180 Ofst2", "Squ", "Squ Ofst1", "Squ180 Ofst1", "Saw Dwn", "Saw Dwn Ofst2", "Saw Up", "Saw Up Ofst2", "S/H", "S/H Ofst2", "S/H2", "S/H2 Ofst2"],
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 09 vv F7"
+                    },
+                    {
+                        "Control Name": "LFO2 Wave",
+                        "LED Color": "Green",
+                        "Output Min Value": 0,
+                        "Output Max Value": 21,
+                        "Output Values": ["Sine", "Sine Ofst1", "Sine Ofst2", "Sin180 Ofst1", "Sin180 Ofst2", "Tri", "Tri Ofst1", "Tri Ofst2", "Tri180 Ofst1", "Tri180 Ofst2", "Squ", "Squ Ofst1", "Squ180 Ofst1", "Saw Dwn", "Saw Dwn Ofst2", "Saw Up", "Saw Up Ofst2", "S/H", "S/H Ofst2", "S/H2", "S/H2 Ofst2"],
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 77 vv F7"
+                    },
+                    {
+                        "Control Name": "LFO Reset Mode",
+                        "LED Color": "Green",
+                        "Output Min Value": 0,
+                        "Output Max Value": 1,
+                        "Output Values": ["off", "key-on"],
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 10 08 vv F7"
+                    },
+                    {
+                        "Control Name": "ETC",
+                        "Output Type": "Multiple",
+                        "Buttons": [
+                            {
+                                "Control Name": "Key Assign Mode",
+                                "LED Color": "Green",
+                                "Output Min Value": 0,
+                                "Output Max Value": 2,
+                                "Output Values": ["Poly", "Mono", "Legato"],
+                                "Output Type": "Sysex",
+                                "Sysex String": "F0 43 10 5C 10 10 00 vv F7"
+                            },
+                            {
+                                "Control Name": "Sync Depth",
+                                "LED Color": "Amber",
+                                "Output Min Value": 0,
+                                "Output Max Value": 127,
+                                "Output Type": "Sysex",
+                                "Sysex String": "F0 43 10 5C 10 10 11 vv F7"
+                            },
+                            {
+                                "Control Name": "VCO1 PWM Edge",
+                                "LED Color": "Red",
+                                "Output Min Value": 0,
+                                "Output Max Value": 127,
+                                "Output Type": "Sysex",
+                                "Sysex String": "F0 43 10 5C 10 10 11 vv F7"
+                            },
+                            {
+                                "Control Name": "VCO2 PWM Edge",
+                                "LED Color": "Red",
+                                "Output Min Value": 0,
+                                "Output Max Value": 127,
+                                "Output Type": "Sysex",
+                                "Sysex String": "F0 43 10 5C 10 10 11 vv F7"
+                            },
+                            {
+                                "Control Name": "VCO1 Fine",
+                                "LED Color": "Red",
+                                "Output Min Value": 0,
+                                "Output Max Value": 127,
+                                "Output Type": "Sysex",
+                                "Sysex String": "F0 43 10 5C 10 10 11 vv F7"
+                            },
+                            {
+                                "Control Name": "VCO2 Fine",
+                                "LED Color": "Red",
+                                "Output Min Value": 0,
+                                "Output Max Value": 127,
+                                "Output Type": "Sysex",
+                                "Sysex String": "F0 43 10 5C 10 10 11 vv F7"
+                            },
+                            {
+                                "Control Name": "EQ Low Freq",
+                                "LED Color": "Amber",
+                                "Output Min Value": 4,
+                                "Output Max Value": 40,
+                                "Output Type": "Sysex",
+                                "Sysex String": "F0 43 10 5C 10 00 28 vv F7"
+                            },
+                            {
+                                "Control Name": "EQ Low Gain",
+                                "LED Color": "Amber",
+                                "Output Min Value": 52,
+                                "Output Max Value": 76,
+                                "Output Type": "Sysex",
+                                "Sysex String": "F0 43 10 5C 10 00 29 vv F7"
+                            },
+                            {
+                                "Control Name": "EQ Mid Freq",
+                                "LED Color": "Amber",
+                                "Output Min Value": 14,
+                                "Output Max Value": 54,
+                                "Output Type": "Sysex",
+                                "Sysex String": "F0 43 10 5C 10 00 2a vv F7"
+                            },
+                            {
+                                "Control Name": "EQ Mid Gain",
+                                "LED Color": "Amber",
+                                "Output Min Value": 52,
+                                "Output Max Value": 76,
+                                "Output Type": "Sysex",
+                                "Sysex String": "F0 43 10 5C 10 00 2b vv F7"
+                            },
+                            {
+                                "Control Name": "EQ Mid Resonance",
+                                "LED Color": "Amber",
+                                "Output Min Value": 10,
+                                "Output Max Value": 120,
+                                "Output Type": "Sysex",
+                                "Sysex String": "F0 43 10 5C 10 00 2c vv F7"
+                            },
+                            {
+                                "Control Name": "EQ High Freq",
+                                "LED Color": "Amber",
+                                "Output Min Value": 28,
+                                "Output Max Value": 58,
+                                "Output Type": "Sysex",
+                                "Sysex String": "F0 43 10 5C 10 00 2d vv F7"
+                            },
+                            {
+                                "Control Name": "EQ High Gain",
+                                "LED Color": "Amber",
+                                "Output Min Value": 52,
+                                "Output Max Value": 76,
+                                "Output Type": "Sysex",
+                                "Sysex String": "F0 43 10 5C 10 00 2e vv F7"
+                            },
+
+ 
+                        ]
+                    },
+                    
+                    { # 16
+                        "Control Name": "Unison",
+                        "LED Color": "Yellow",
+                        "Output Min Value": 0,
+                        "Output Max Value": 1,
+                        "Output Values": ["off", "on"],
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 00 0C vv F7"
+                    },
+                    { # 17
+                        "Control Name": "Output Gain",
+                        "LED Color": "Yellow",
+                        "Output Min Value": 0,
+                        "Output Max Value": 2,
+                        "Output Values": ["+0dB", "+6dB", "+12dB"],
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 10 5C 10 00 1B vv F7"
+                    },
+                    { # 18
+                        "Control Name": "Open",
+                        "Output Type": "Disabled",
+                    }
+                    { # 19
+                        "Control Name": "Store",
+                        "LED Color": "Yellow",
+                        "Output Type": "Sysex",
+                        "Sysex String": "F0 43 00 5C SS TT GG MM LL vv KK F7"
+                        /*
+                        Exclusive status
+                        YAMAHA ID
+                        N:Device Number
+                        Model ID
+                        SS = ByteCountMSB
+                        TT = ByteCountLSB
+                        GG = Address High
+                        MM = Address Mid
+                        LL = Address Low
+                        vv = Data
+                        ...
+                        KK = Check-sum
+                        End of Exclusive
+                        
+                        Address and Byte Count are given in tables <1-n>.
+                        Byte Count is indicated by the total size of the Data in tables <1-n>.
+                        Bulk dump is received when the beginning of the block is specified in "Address."
+                        "Block" indicates the unit of the data string that is indicated in tables <1-n> as "Total Size."
+                        Check sum is the value that produces a lower 7 bits of 0 when ths Start Address, Byte Count, Data, and the Check sum itself are added. (The sum of all bytes from SS SS SS to KK, inclusive, should equal 0, modulo 128 decimal.)
+                        */
+                    }
+
+                ]
+            },
+            {
+                "Template Name": "MU100 Drums",
+                "Output Device": "Midi Through.*",
+                "Output Channel": 10
+                
+            },
+            {
+                "Template Name": "MU100 Effects",
+                "Output Device": "Midi Through.*"
+                
+            }
+        ]   
+    }
+}}
